@@ -1,4 +1,4 @@
-function addNewPerson(name, email, cpf) {
+function addNewPerson(name, email, cpf, signature) {
   const nameElementValue = document.createElement("h2");
   const emailElementValue = document.createElement("span");
   const cpfElementValue = document.createElement("span");
@@ -16,6 +16,7 @@ function addNewPerson(name, email, cpf) {
   cpfElementValue.innerText = cpf;
   cpfElementValue.className = "person-cpf";
   imageElementValue.alt = "signature-img";
+  imageElementValue.src = signature;
   imageElementValue.className = "signature-img";
 
   listContainer.appendChild(liContainer);
