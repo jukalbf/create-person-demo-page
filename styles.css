@@ -83,12 +83,43 @@ input {
 
 .digital-signature-container {
   display: flex;
+  position: relative;
   flex-direction: column;
   height: 100%;
   padding: 1em;
   width: 80%;
   padding-right: 0;
   box-sizing: border-box;
+}
+
+.buttons-signature {
+  position: absolute;
+  width: fit-content;
+  gap: .6em;
+  display: flex;
+  flex-direction: row-reverse;
+  bottom: 3em;
+  right: .4em;
+}
+
+.button-clear-signature,
+.button-signed {
+  outline: none;
+  border: none;
+  padding: .4em 1em;
+  box-sizing: border-box;
+  border-radius: .2em;
+  cursor: pointer;
+}
+
+.button-clear-signature {
+  background-color: black;
+  color: white;
+}
+
+.button-signed {
+  background-color: white;
+  border: 1px solid black;
 }
 
 .digital-signature-canvas {
