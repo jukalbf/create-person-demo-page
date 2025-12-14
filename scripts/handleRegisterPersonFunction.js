@@ -1,9 +1,10 @@
 import {
   toastErrorConfig,
-  toastSignSucess,
+  toastSignSuccess,
   toastSucessConfig,
 } from "./toastConfigs.js";
 import addNewPerson from "./addNewPersonFunction.js";
+import postData from "./postData.js";
 
 const buttonSign = document.querySelector(".button-signed");
 const canvas = document.querySelector(".digital-signature-canvas");
@@ -16,7 +17,13 @@ var signatureImg = null;
 
 buttonSign.addEventListener("click", signSignature);
 
-function handleRegisterPerson() {
+function handleRegisterPerson(event) {
+  event.preventDefault();
+
+  const port = 8000;
+  const URL = `http://localhost:${port}`;
+  const route = "home";
+
   if (!nameInput.value || !emailInput.value || !cpfInput.value || !isSigned) {
     Toastify(toastErrorConfig).showToast();
     return;
@@ -26,9 +33,11 @@ function handleRegisterPerson() {
     name: nameInput.value,
     email: emailInput.value,
     cpf: cpfInput.value,
+    dados_assinatura: btoa(signatureImg),
   };
 
   addNewPerson(newPerson.name, newPerson.email, newPerson.cpf, signatureImg);
+  postData(URL, route, newPerson);
   console.log(signatureImg);
 
   Toastify(toastSucessConfig).showToast();
@@ -37,8 +46,9 @@ function handleRegisterPerson() {
 function signSignature() {
   isSigned = true;
   signatureImg = canvas.toDataURL("image/png");
+  console.log(signatureImg);
 
-  Toastify(toastSignSucess).showToast();
+  Toastify(toastSignSuccess).showToast();
 }
 
 export default handleRegisterPerson;

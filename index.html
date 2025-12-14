@@ -13,7 +13,7 @@
   </head>
   <body>
     <h1>Demo cadastro de pessoa</h1>
-    <div class="register-container">
+    <form method="post" class="register-container">
       <div class="personal-data">
         <span>Dados</span>
         <input
@@ -37,7 +37,7 @@
           placeholder="CPF"
           class="cpf-input input"
         />
-        <button type="button" class="register-button">Cadastrar</button>
+        <button type="submit" class="register-button">Cadastrar</button>
       </div>
       <div class="digital-signature-container">
         <span class="signature-title">Assinatura digital</span>
@@ -47,7 +47,7 @@
           <button type="button" class="button-signed">Assinar</button>
         </div>
       </div>
-    </div>
+    </form>
     <ul class="data-list-container">
       <li class="data-info-container">
         <h2 class="person-name">Nome</h2>

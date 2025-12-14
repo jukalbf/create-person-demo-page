@@ -10,10 +10,6 @@ span {
   font-size: 1rem;
 }
 
-/* h1 {
-    font-size: 2em;
-} */
-
 * {
   font-family: "Poppins";
   padding: 0;
@@ -23,7 +19,8 @@ span {
 body {
   font-size: 14px;
   padding: 1em;
-  width: 1440px;
+  max-width: 1440px;
+  min-width: 1200px;
   margin: 0 auto;
 }
 
@@ -98,8 +95,8 @@ input {
   gap: .6em;
   display: flex;
   flex-direction: row-reverse;
-  bottom: 3em;
-  right: .4em;
+  bottom: 2.6rem;
+  right: .4rem;
 }
 
 .button-clear-signature,

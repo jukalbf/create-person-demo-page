@@ -1,6 +1,9 @@
 async function fetchAllData() {
-  const backendURLBase = "";
-  const backendRoute = "";
+  const port = 8000;
+  const backendURLBase = `http://localhost:${port}`;
+  const backendRoute = "home";
+  const searchParams = "";
+  const routes = [];
 
   try {
     const dataResponse = await fetch(`${backendURLBase}/${backendRoute}`);
