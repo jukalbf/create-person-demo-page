@@ -91,10 +91,9 @@ input {
 .digital-signature-canvas {
   flex: 1;
   border: 1px solid var(--gray-border);
-  height: 4em;
-  width: 100%;
-  object-fit: contain;
   border-radius: .4em;
+  object-fit: fill;
+  cursor: crosshair;
 }
 
 .data-list-container {
