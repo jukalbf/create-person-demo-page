@@ -3,11 +3,18 @@ const ctx = canvas.getContext("2d");
 
 let mouseInitPosition = null;
 let stopMouseTracking = false;
+let mousePosX = null;
+let mousePosY = null;
 
-function handleCanvasDraw(event) {
+canvas.addEventListener("mousemove", handleDrawTrackMouse);
+
+// canvas.addEventListener("mousedown", handleMouseDownDraw);
+
+function handleDrawTrackMouse(event) {
   const canvasRect = canvas.getBoundingClientRect();
-  const mousePosX = event.clientX - canvasRect.left;
-  const mousePosY = event.clientY - canvasRect.top;
+  mousePosX = event.clientX - canvasRect.left;
+  mousePosY = event.clientY - canvasRect.top;
+  let strokeColor = "#00000000";
 
   if (!mouseInitPosition && !stopMouseTracking) {
     mouseInitPosition = {
@@ -17,21 +24,23 @@ function handleCanvasDraw(event) {
   }
 
   stopMouseTracking = true;
-
-  console.log(
-    `X: ${mouseInitPosition.xInitPosition} | Y: ${mouseInitPosition.yInitPosition}`
+  ctx.beginPath(
+    mouseInitPosition.xInitPosition,
+    mouseInitPosition.yInitPosition
   );
+  ctx.fillRect(mousePosX, mousePosY, 5, 5);
 
-  canvas.addEventListener("mousemove", function () {
-    ctx.beginPath(
-      mouseInitPosition.xInitPosition,
-      mouseInitPosition.yInitPosition
-    );
-    ctx.fillStyle = "green";
-    ctx.fillRect(mousePosX, mousePosY, 5, 5);
+  canvas.addEventListener("mousedown", function () {
+    strokeColor = "#000000";
+    ctx.fillStyle = strokeColor;
+    ctx.stroke();
+  });
 
+  canvas.addEventListener("mouseup", function () {
+    strokeColor = "#00000000";
+    ctx.fillStyle = strokeColor;
     ctx.stroke();
   });
 }
 
-canvas.addEventListener("mousedown", handleCanvasDraw);
+function handleMouseDownDraw() {}
