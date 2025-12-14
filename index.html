@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <title>Cadastro</title>
+  </head>
+  <body>
+    <h1>Demo cadastro de pessoa</h1>
+    <div class="register-container">
+      <div class="personal-data">
+        <span>Dados</span>
+        <input
+          type="text"
+          name="name-input"
+          id=""
+          placeholder="Nome"
+          class="name-input input"
+        />
+        <input
+          type="text"
+          name="email-input"
+          id=""
+          placeholder="Email"
+          class="email-input input"
+        />
+        <input
+          type="text"
+          name="cpf-input"
+          id=""
+          placeholder="CPF"
+          class="cpf-input input"
+        />
+        <button type="button" class="register-button">Cadastrar</button>
+      </div>
+      <div class="digital-signature-container">
+        <span class="signature-title">Assinatura digital</span>
+        <canvas
+          class="digital-signature-canvas"
+          width="1000"
+          height="172"
+        ></canvas>
+      </div>
+    </div>
+    <ul class="data-list-container">
+      <li class="data-info-container">
+        <h2 class="person-name">Nome</h2>
+        <span class="person-email">email@email.com</span>
+        <span class="person-cpf">000.000.000-00</span>
+        <img src="" alt="signature-img" class="signature-img" />
+      </li>
+    </ul>
+
+    <script type="module" src="scripts/main.js"></script>
+    <script src="scripts/canvas.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+  </body>
+</html>
