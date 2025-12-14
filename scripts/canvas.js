@@ -1,6 +1,7 @@
 const canvas = document.querySelector(".digital-signature-canvas");
 const canvasContainer = document.querySelector(".digital-signature-container");
 const ctx = canvas.getContext("2d");
+const buttonClear = document.querySelector(".button-clear-signature");
 
 let mouseInitPosition = null;
 let stopMouseTracking = false;
@@ -9,6 +10,8 @@ let mousePosY = null;
 let isDrawing = false;
 canvas.width = canvasContainer.getBoundingClientRect().width;
 const pencilSize = 2;
+
+buttonClear.addEventListener("click", clearCanvas);
 
 canvas.addEventListener("mousemove", handleDrawTrackMouse);
 
@@ -58,4 +61,6 @@ function handleDrawTrackMouse(event) {
   }
 }
 
-function handleMouseDownDraw() {}
+function clearCanvas() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
