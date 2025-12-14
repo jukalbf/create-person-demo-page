@@ -8,7 +8,6 @@ let mousePosX = null;
 let mousePosY = null;
 let isDrawing = false;
 canvas.width = canvasContainer.getBoundingClientRect().width;
-// canvas.height = canvasContainer.getBoundingClientRect().height;
 const pencilSize = 2;
 
 canvas.addEventListener("mousemove", handleDrawTrackMouse);
@@ -41,18 +40,9 @@ function handleDrawTrackMouse(event) {
 
     stopMouseTracking = true;
 
-    ctx.beginPath(
-      mouseInitPosition.xInitPosition,
-      mouseInitPosition.yInitPosition
-    );
+    ctx.beginPath();
 
-    ctx.arc(
-      mousePosX,
-      mousePosY + -2,
-      pencilSize,
-      0,
-      2 * Math.PI
-    );
+    ctx.arc(mousePosX, mousePosY, pencilSize, 0, 2 * Math.PI);
 
     if (isDrawing) {
       strokeColor = "#000000";
